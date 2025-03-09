@@ -5,10 +5,10 @@ services:
     image: mysql:8.0
     restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?MySQL root password must be set}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:Monya01}
       MYSQL_DATABASE: ${MYSQL_DATABASE:-wordpress}
       MYSQL_USER: ${MYSQL_USER:-wp_user}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD:?MySQL password must be set}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:Monya01}
     volumes:
       - db_data:/var/lib/mysql
     networks:

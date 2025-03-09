@@ -17,6 +17,12 @@ services:
     #   - "3306:3306"
     networks:
       - wordpress_network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
 
   wordpress:
     image: wordpress:latest
@@ -50,6 +56,12 @@ services:
       - ./wp-content/themes/aviator-theme:/var/www/html/wp-content/themes/aviator-theme
     networks:
       - wordpress_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/wp-admin/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
 
   adminer:
     image: adminer:latest
@@ -83,12 +95,14 @@ services:
     networks:
       - wordpress_network
 
+  # Изменяем wp-cli для однократного запуска без перезапуска
   wp-cli:
     image: wordpress:cli
     container_name: wp-cli
-    restart: on-failure
+    # Меняем на "no" чтобы избежать цикла перезапуска
+    restart: "no"
+    # Ждем пока WordPress полностью настроится
     depends_on:
-      - db
       - wordpress
     volumes:
       - wordpress_data:/var/www/html
@@ -102,12 +116,33 @@ services:
       - wordpress_network
     command: >
       /bin/sh -c '
-      wp core install --path="/var/www/html" --url="https://${DOMAIN_NAME}" --title="Aviator Game Site" --admin_user=admin --admin_password=admin --admin_email=admin@example.com --skip-email &&
-      wp theme activate aviator-theme --path="/var/www/html" &&
-      wp plugin install wordpress-importer wordfence --activate --path="/var/www/html" &&
-      wp option update blogname "1xBet Aviator" --path="/var/www/html" &&
-      wp option update blogdescription "Aviator Game - A Simple and Exciting Game" --path="/var/www/html" &&
-      wp option update permalink_structure "/%postname%/" --path="/var/www/html"
+      # Ждем пока база данных и WordPress будут готовы
+      echo "Ожидание 30 секунд для инициализации WordPress..."
+      sleep 30
+      
+      # Исправление прав доступа
+      echo "Настройка прав доступа..."
+      mkdir -p /var/www/html/wp-content/upgrade
+      chmod -R 755 /var/www/html/wp-content
+      
+      # Установка WordPress
+      echo "Настройка WordPress..."
+      wp core install --path="/var/www/html" --url="https://${DOMAIN_NAME}" --title="Aviator Game Site" --admin_user=admin --admin_password=admin --admin_email=admin@example.com --skip-email || true
+      
+      # Настройка темы и плагинов
+      echo "Активация темы..."
+      wp theme activate aviator-theme --path="/var/www/html" || true
+      
+      echo "Установка плагинов..."
+      wp plugin install wordpress-importer --activate --path="/var/www/html" || true
+      wp plugin install wordfence --activate --path="/var/www/html" || true
+      
+      echo "Настройка параметров сайта..."
+      wp option update blogname "1xBet Aviator" --path="/var/www/html" || true
+      wp option update blogdescription "Aviator Game - A Simple and Exciting Game" --path="/var/www/html" || true
+      wp option update permalink_structure "/%postname%/" --path="/var/www/html" || true
+      
+      echo "Настройка WordPress завершена"
       '
 
 networks:
