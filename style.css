@@ -1,0 +1,287 @@
+/*
+Theme Name: Aviator Theme
+Theme URI: https://yourwebsite.com/aviator-theme
+Author: Your Name
+Author URI: https://yourwebsite.com
+Description: A WordPress theme similar to 1xbetaviador.org focused on the Aviator game and online gambling
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: aviator-theme
+Tags: casino, gambling, aviator, betting
+*/
+
+:root {
+  --primary-color: #0066cc;
+  --secondary-color: #ff3333;
+  --dark-color: #1a1a1a;
+  --light-color: #f8f8f8;
+  --font-primary: 'Arial', sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  color: #333;
+  line-height: 1.6;
+  background-color: var(--light-color);
+}
+
+/* Header Styles */
+header {
+  background-color: var(--dark-color);
+  padding: 1rem 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.site-logo {
+  max-width: 150px;
+}
+
+/* Navigation */
+.main-navigation ul {
+  display: flex;
+  list-style: none;
+}
+
+.main-navigation li {
+  margin-right: 1.5rem;
+  position: relative;
+}
+
+.main-navigation a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  text-transform: uppercase;
+  padding: 0.5rem 0;
+}
+
+.main-navigation a:hover {
+  color: var(--secondary-color);
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(to right, var(--dark-color), #333);
+  color: white;
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-heading);
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #e62e2e;
+}
+
+/* Main Content */
+.main-content {
+  padding: 3rem 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Game Info Section */
+.game-info {
+  margin-bottom: 3rem;
+}
+
+.game-info h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--dark-color);
+  font-family: var(--font-heading);
+}
+
+.game-info p {
+  margin-bottom: 1rem;
+}
+
+/* Table Styles */
+.game-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+}
+
+.game-table th, .game-table td {
+  border: 1px solid #ddd;
+  padding: 0.8rem;
+  text-align: left;
+}
+
+.game-table th {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.game-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Bonus Section */
+.bonus-section {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 3rem;
+}
+
+.bonus-section h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+/* FAQ Section */
+.faq-section {
+  margin-bottom: 3rem;
+}
+
+.faq-item {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+}
+
+.faq-question {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+/* Rating Section */
+.rating-section {
+  background-color: #f5f5f5;
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 3rem;
+}
+
+.rating-stars {
+  color: gold;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+  background-color: var(--dark-color);
+  color: white;
+  padding: 2rem 0;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 200px;
+  margin-bottom: 1.5rem;
+}
+
+.footer-column h4 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.footer-column ul {
+  list-style: none;
+}
+
+.footer-column li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-column a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.footer-column a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  border-top: 1px solid #444;
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #999;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .site-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .main-navigation ul {
+    flex-direction: column;
+    padding: 1rem 0;
+  }
+  
+  .main-navigation li {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .footer-links {
+    flex-direction: column;
+  }
+} 

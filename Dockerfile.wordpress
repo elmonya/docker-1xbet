@@ -1,0 +1,73 @@
+FROM wordpress:6.4-php8.2-apache AS builder
+
+LABEL maintainer="admin@1xbet-install.com"
+LABEL description="WordPress image with Aviator theme for 1xBet site"
+LABEL version="1.0"
+
+# Установка зависимостей в одном слое для минимизации размера образа
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    unzip \
+    wget \
+    libpng-dev \
+    mariadb-client \
+    && rm -rf /var/lib/apt/lists/* \
+    && docker-php-ext-install -j "$(nproc)" pdo pdo_mysql exif
+
+# Копирование и установка плагинов в одном слое
+WORKDIR /tmp/plugins
+RUN set -ex; \
+    curl -sSL -o wordpress-importer.zip https://downloads.wordpress.org/plugin/wordpress-importer.latest-stable.zip \
+    && curl -sSL -o wordfence.zip https://downloads.wordpress.org/plugin/wordfence.latest-stable.zip \
+    && unzip -q wordpress-importer.zip -d /usr/src/wordpress/wp-content/plugins/ \
+    && unzip -q wordfence.zip -d /usr/src/wordpress/wp-content/plugins/ \
+    && rm -rf /tmp/plugins
+
+# Копируем нашу тему Aviator
+COPY --chown=www-data:www-data wp-content/themes/aviator-theme /usr/src/wordpress/wp-content/themes/aviator-theme
+
+# Копируем скрипт настройки
+COPY --chmod=755 setup-wordpress.sh /usr/local/bin/
+
+# Создаем финальный образ
+FROM wordpress:6.4-php8.2-apache
+
+# Копируем установленные плагины и тему из предыдущего этапа
+COPY --from=builder /usr/src/wordpress/wp-content /var/www/html/wp-content
+COPY --from=builder --chmod=755 /usr/local/bin/setup-wordpress.sh /usr/local/bin/
+
+# PHP конфигурация для повышения производительности
+RUN { \
+        echo 'memory_limit = 256M'; \
+        echo 'upload_max_filesize = 64M'; \
+        echo 'post_max_size = 64M'; \
+        echo 'max_execution_time = 300'; \
+        echo 'opcache.enable = 1'; \
+        echo 'opcache.revalidate_freq = 0'; \
+        echo 'opcache.validate_timestamps = 0'; \
+        echo 'opcache.max_accelerated_files = 10000'; \
+        echo 'opcache.memory_consumption = 128'; \
+        echo 'opcache.interned_strings_buffer = 16'; \
+        echo 'opcache.fast_shutdown = 1'; \
+    } > /usr/local/etc/php/conf.d/wordpress-performance.ini
+
+# Настраиваем права доступа
+RUN chown -R www-data:www-data /var/www/html
+
+# Проверка работоспособности
+HEALTHCHECK --interval=30s --timeout=10s --retries=3 \
+    CMD curl -f http://localhost/ || exit 1
+
+# Экспонируем порт
+EXPOSE 80
+
+# Уязвимые файлы и директории
+RUN rm -f /var/www/html/wp-config-sample.php \
+    && rm -f /var/www/html/license.txt \
+    && rm -f /var/www/html/readme.html
+
+# Непривилегированный пользователь
+USER www-data
+
+# Добавляем setup-wordpress.sh к entrypoint
+ENTRYPOINT ["docker-entrypoint.sh"]
+CMD ["apache2-foreground"] 

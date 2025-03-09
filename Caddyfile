@@ -1,0 +1,37 @@
+{
+    # Глобальные настройки
+    email admin@1xbet-install.com
+    
+    # Настраиваем порты
+    http_port 8080
+    https_port 443
+}
+
+# Основной домен для сайта
+{$DOMAIN_NAME}:8080 {
+    # Перенаправляем на HTTPS
+    redir https://{host}{uri} permanent
+}
+
+# HTTPS версия основного домена
+https://{$DOMAIN_NAME} {
+    # Используем реальный сертификат
+    tls admin@1xbet-install.com
+
+    # Проксирование запросов к WordPress
+    reverse_proxy wordpress:80
+
+    # Дополнительные заголовки безопасности
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "SAMEORIGIN"
+        Referrer-Policy "strict-origin-when-cross-origin"
+    }
+}
+
+# Для доступа к Adminer
+https://adminer.{$DOMAIN_NAME} {
+    tls admin@1xbet-install.com
+    reverse_proxy adminer:8080
+} 

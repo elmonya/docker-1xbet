@@ -1,0 +1,29 @@
+.ssh/
+
+# Игнорируем переменные окружения
+.env
+.env.*
+!.env.example
+
+# Игнорируем логи
+*.log
+
+# Игнорируем директорию данных Docker
+data/
+
+# Временные файлы
+*.tmp
+*.bak
+*~
+.DS_Store
+
+# Кэш-файлы
+.cache/
+
+# SSL-сертификаты
+*.crt
+*.key
+*.pem
+!example-certs/*.pem
+!example-certs/*.crt
+!example-certs/*.key

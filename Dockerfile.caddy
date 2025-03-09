@@ -1,0 +1,29 @@
+FROM caddy:2.7.4-alpine
+
+LABEL maintainer="serkas@example.com"
+LABEL description="1xBet Aviator Caddy Server with HTTPS support"
+LABEL version="1.0"
+
+# Разрешаем только сетевые порты
+EXPOSE 8080 443
+
+# Копируем Caddyfile
+COPY --chown=nonroot:nonroot Caddyfile /etc/caddy/Caddyfile
+
+# Создаем директории для логов и устанавливаем правильные права доступа
+RUN mkdir -p /var/log/caddy && \
+    chown -R nonroot:nonroot /var/log/caddy /etc/caddy
+
+# Запускаем от непривилегированного пользователя
+USER nonroot
+
+# Добавляем HEALTHCHECK для контейнера
+HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
+    CMD wget --no-verbose --tries=1 --spider http://localhost:8080/ || exit 1
+
+# Определяем volume для данных и конфигурации
+VOLUME ["/data", "/config", "/var/log/caddy"]
+
+# Запускаем Caddy с правильной обработкой сигналов
+ENTRYPOINT ["caddy"]
+CMD ["run", "--config", "/etc/caddy/Caddyfile", "--adapter", "caddyfile"] 

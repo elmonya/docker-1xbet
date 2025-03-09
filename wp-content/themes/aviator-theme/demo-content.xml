@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0"
+	xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:wp="http://wordpress.org/export/1.2/"
+>
+<channel>
+	<title>Aviator Game Site</title>
+	<link>http://localhost:8080</link>
+	<description>Сайт о популярной игре Aviator</description>
+	<pubDate>Thu, 28 Apr 2023 12:00:00 +0000</pubDate>
+	<language>ru-RU</language>
+	<wp:wxr_version>1.2</wp:wxr_version>
+	<wp:base_site_url>http://localhost:8080</wp:base_site_url>
+	<wp:base_blog_url>http://localhost:8080</wp:base_blog_url>
+
+	<wp:author>
+		<wp:author_id>1</wp:author_id>
+		<wp:author_login>admin</wp:author_login>
+		<wp:author_email>admin@example.com</wp:author_email>
+		<wp:author_display_name><![CDATA[Admin]]></wp:author_display_name>
+		<wp:author_first_name><![CDATA[Admin]]></wp:author_first_name>
+		<wp:author_last_name><![CDATA[User]]></wp:author_last_name>
+	</wp:author>
+
+	<generator>https://wordpress.org/?v=6.0</generator>
+
+	<!-- Home page -->
+	<item>
+		<title><![CDATA[Главная страница]]></title>
+		<link>http://localhost:8080/</link>
+		<pubDate>Thu, 28 Apr 2023 12:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">http://localhost:8080/?page_id=2</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:paragraph -->
+<p>Добро пожаловать на сайт о популярной игре Aviator. Здесь вы найдете полную информацию об игре, стратегиях и бонусах.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2>Об игре Aviator</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Aviator - это увлекательная игра, разработанная компанией Spribe, которая сочетает в себе простоту и адреналин. Это игра-краш, где пользователь должен успеть вывести средства до того, как самолет улетит с экрана.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:shortcode -->
+[aviator_bonus title="Приветственный бонус" percentage="450%" freespins="425" amount="6,000€" deposits="4" code="AVIATOR2024"]
+<!-- /wp:shortcode -->
+
+<!-- wp:heading -->
+<h2>Часто задаваемые вопросы</h2>
+<!-- /wp:heading -->
+
+<!-- wp:shortcode -->
+[aviator_faq]
+[aviator_faq_item question="Можно ли играть в Aviator бесплатно?"]Да, многие казино предлагают демо-версию игры Aviator, где вы можете играть без риска реальных денег.[/aviator_faq_item]
+[aviator_faq_item question="Какой максимальный множитель в игре?"]Теоретически, множитель может достигать миллионов. Исторически зафиксированный максимум составляет более 2,500,000x.[/aviator_faq_item]
+[aviator_faq_item question="Как начать играть?"]Для начала игры вам необходимо зарегистрироваться на сайте казино, пополнить счет и перейти в раздел с игрой Aviator.[/aviator_faq_item]
+[/aviator_faq]
+<!-- /wp:shortcode -->
+
+<!-- wp:heading -->
+<h2>Наш рейтинг</h2>
+<!-- /wp:heading -->
+
+<!-- wp:shortcode -->
+[aviator_rating score="4.8" max="5"]
+<!-- /wp:shortcode -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>2</wp:post_id>
+		<wp:post_date>2023-04-28 12:00:00</wp:post_date>
+		<wp:post_date_gmt>2023-04-28 12:00:00</wp:post_date_gmt>
+		<wp:comment_status>closed</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name>home</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>page</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:postmeta>
+			<wp:meta_key>_wp_page_template</wp:meta_key>
+			<wp:meta_value><![CDATA[front-page.php]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+
+	<!-- Страница "О нас" -->
+	<item>
+		<title><![CDATA[О нас]]></title>
+		<link>http://localhost:8080/about/</link>
+		<pubDate>Thu, 28 Apr 2023 12:10:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">http://localhost:8080/?page_id=3</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:paragraph -->
+<p>Мы - команда экспертов и энтузиастов игры Aviator, которые собрали для вас лучшую информацию об этой захватывающей игре.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Наша миссия - предоставить игрокам полное и достоверное руководство по Aviator, включая советы, стратегии и обзоры.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>На нашем сайте вы найдете:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul>
+<li>Подробное описание правил игры</li>
+<li>Проверенные стратегии для увеличения шансов на выигрыш</li>
+<li>Информацию о бонусах и акциях</li>
+<li>Обзоры казино, предлагающих игру Aviator</li>
+</ul>
+<!-- /wp:list -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>3</wp:post_id>
+		<wp:post_date>2023-04-28 12:10:00</wp:post_date>
+		<wp:post_date_gmt>2023-04-28 12:10:00</wp:post_date_gmt>
+		<wp:comment_status>closed</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name>about</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>page</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+	</item>
+
+	<!-- Страница "Контакты" -->
+	<item>
+		<title><![CDATA[Контакты]]></title>
+		<link>http://localhost:8080/contact/</link>
+		<pubDate>Thu, 28 Apr 2023 12:20:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">http://localhost:8080/?page_id=4</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:paragraph -->
+<p>Свяжитесь с нами, если у вас есть вопросы или предложения:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Email: info@example.com</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Мы также присутствуем в социальных сетях:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul>
+<li>Facebook: /aviator.game.official</li>
+<li>Twitter: @aviator_game</li>
+<li>Instagram: @aviator_official</li>
+</ul>
+<!-- /wp:list -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>4</wp:post_id>
+		<wp:post_date>2023-04-28 12:20:00</wp:post_date>
+		<wp:post_date_gmt>2023-04-28 12:20:00</wp:post_date_gmt>
+		<wp:comment_status>closed</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name>contact</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>page</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+	</item>
+
+	<!-- Casino Game: Aviator -->
+	<item>
+		<title><![CDATA[Aviator]]></title>
+		<link>http://localhost:8080/casino-game/aviator/</link>
+		<pubDate>Thu, 28 Apr 2023 13:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">http://localhost:8080/?post_type=casino_game&#038;p=5</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:paragraph -->
+<p>Aviator - это инновационная игра в жанре "crash", разработанная компанией Spribe. Игра отличается от традиционных слотов и предлагает уникальный опыт, где игроки должны решить, когда вывести свои средства до того, как график (в виде самолета) улетит.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Главные характеристики игры:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul>
+<li>RTP (возврат игроку): 97%</li>
+<li>Волатильность: Низкая-Средняя</li>
+<li>Минимальная ставка: $0.10</li>
+<li>Максимальная ставка: $100</li>
+<li>Максимальный множитель: теоретически неограничен</li>
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>Aviator использует технологию Provably Fair, что гарантирует честность и непредсказуемость результатов. Каждый раунд генерируется с помощью сложного алгоритма, который невозможно предугадать или подделать.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2>Как играть в Aviator</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Игровой процесс Aviator прост, но захватывающ:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list {"ordered":true} -->
+<ol>
+<li>Сделайте ставку перед началом раунда</li>
+<li>После взлета самолета начинает расти множитель</li>
+<li>Решите, когда вывести средства - чем дольше ждете, тем выше множитель</li>
+<li>Если вы выведете средства до того, как самолет улетит, вы получите свою ставку, умноженную на множитель</li>
+<li>Если самолет улетит до того, как вы выведете средства, ваша ставка сгорает</li>
+</ol>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>Игра позволяет делать две ставки одновременно, что открывает возможности для различных стратегий.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2>Стратегии игры</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Существует несколько популярных стратегий для игры в Aviator:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul>
+<li><strong>Двойные ставки</strong>: Делайте две ставки - одну с автовыводом на низком множителе (например, 1.3x), а вторую держите для более высоких множителей</li>
+<li><strong>Мартингейл</strong>: Удваивайте ставку после каждого проигрыша</li>
+<li><strong>Анти-Мартингейл</strong>: Удваивайте ставку после каждого выигрыша и возвращайтесь к начальной после проигрыша</li>
+</ul>
+<!-- /wp:list -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[Aviator - это инновационная игра в жанре "crash", где игроки должны решить, когда вывести свои средства до того, как график (в виде самолета) улетит.]]></excerpt:encoded>
+		<wp:post_id>5</wp:post_id>
+		<wp:post_date>2023-04-28 13:00:00</wp:post_date>
+		<wp:post_date_gmt>2023-04-28 13:00:00</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>aviator</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>casino_game</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="game_category" nicename="crash-games"><![CDATA[Crash Games]]></category>
+	</item>
+
+	<!-- Термин таксономии: Crash Games -->
+	<wp:term>
+		<wp:term_id>1</wp:term_id>
+		<wp:term_taxonomy>game_category</wp:term_taxonomy>
+		<wp:term_slug>crash-games</wp:term_slug>
+		<wp:term_parent></wp:term_parent>
+		<wp:term_name><![CDATA[Crash Games]]></wp:term_name>
+		<wp:term_description><![CDATA[Игры в жанре Crash, где нужно вовремя забрать ставку]]></wp:term_description>
+	</wp:term>
+
+	<!-- Меню: Главное меню -->
+	<wp:term>
+		<wp:term_id>2</wp:term_id>
+		<wp:term_taxonomy>nav_menu</wp:term_taxonomy>
+		<wp:term_slug>primary-menu</wp:term_slug>
+		<wp:term_name><![CDATA[Primary Menu]]></wp:term_name>
+	</wp:term>
+
+	<!-- Пункты меню -->
+	<item>
+		<title><![CDATA[Главная]]></title>
+		<link>http://localhost:8080/</link>
+		<pubDate>Thu, 28 Apr 2023 14:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">http://localhost:8080/?p=6</guid>
+		<description></description>
+		<content:encoded><![CDATA[]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>6</wp:post_id>
+		<wp:post_date>2023-04-28 14:00:00</wp:post_date>
+		<wp:post_date_gmt>2023-04-28 14:00:00</wp:post_date_gmt>
+		<wp:comment_status>closed</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name>menu-item-home</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>1</wp:menu_order>
+		<wp:post_type>nav_menu_item</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="nav_menu" nicename="primary-menu"><![CDATA[Primary Menu]]></category>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_type</wp:meta_key>
+			<wp:meta_value><![CDATA[custom]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_menu_item_parent</wp:meta_key>
+			<wp:meta_value><![CDATA[0]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_object_id</wp:meta_key>
+			<wp:meta_value><![CDATA[2]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_object</wp:meta_key>
+			<wp:meta_value><![CDATA[page]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_target</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_classes</wp:meta_key>
+			<wp:meta_value><![CDATA[a:1:{i:0;s:0:"";}]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_xfn</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_url</wp:meta_key>
+			<wp:meta_value><![CDATA[/]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+
+	<item>
+		<title><![CDATA[О нас]]></title>
+		<link>http://localhost:8080/about/</link>
+		<pubDate>Thu, 28 Apr 2023 14:01:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">http://localhost:8080/?p=7</guid>
+		<description></description>
+		<content:encoded><![CDATA[]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>7</wp:post_id>
+		<wp:post_date>2023-04-28 14:01:00</wp:post_date>
+		<wp:post_date_gmt>2023-04-28 14:01:00</wp:post_date_gmt>
+		<wp:comment_status>closed</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name>menu-item-about</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>2</wp:menu_order>
+		<wp:post_type>nav_menu_item</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="nav_menu" nicename="primary-menu"><![CDATA[Primary Menu]]></category>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_type</wp:meta_key>
+			<wp:meta_value><![CDATA[post_type]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_menu_item_parent</wp:meta_key>
+			<wp:meta_value><![CDATA[0]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_object_id</wp:meta_key>
+			<wp:meta_value><![CDATA[3]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_object</wp:meta_key>
+			<wp:meta_value><![CDATA[page]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_target</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_classes</wp:meta_key>
+			<wp:meta_value><![CDATA[a:1:{i:0;s:0:"";}]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_xfn</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_url</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+
+	<item>
+		<title><![CDATA[Контакты]]></title>
+		<link>http://localhost:8080/contact/</link>
+		<pubDate>Thu, 28 Apr 2023 14:02:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">http://localhost:8080/?p=8</guid>
+		<description></description>
+		<content:encoded><![CDATA[]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>8</wp:post_id>
+		<wp:post_date>2023-04-28 14:02:00</wp:post_date>
+		<wp:post_date_gmt>2023-04-28 14:02:00</wp:post_date_gmt>
+		<wp:comment_status>closed</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name>menu-item-contact</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>3</wp:menu_order>
+		<wp:post_type>nav_menu_item</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="nav_menu" nicename="primary-menu"><![CDATA[Primary Menu]]></category>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_type</wp:meta_key>
+			<wp:meta_value><![CDATA[post_type]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_menu_item_parent</wp:meta_key>
+			<wp:meta_value><![CDATA[0]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_object_id</wp:meta_key>
+			<wp:meta_value><![CDATA[4]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_object</wp:meta_key>
+			<wp:meta_value><![CDATA[page]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_target</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_classes</wp:meta_key>
+			<wp:meta_value><![CDATA[a:1:{i:0;s:0:"";}]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_xfn</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_url</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+
+</channel>
+</rss> 
