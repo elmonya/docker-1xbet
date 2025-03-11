@@ -1,0 +1,118 @@
+name: Terraform Deploy to Azure VM
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'terraform/**'
+      - 'docker-compose.prod.yml'
+      - 'Dockerfile.*'
+      - '.github/workflows/terraform-deploy.yml'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'terraform/**'
+  workflow_dispatch:
+
+env:
+  TF_LOG: INFO
+  DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+  DOMAIN_NAME: ${{ secrets.DOMAIN_NAME }}
+
+jobs:
+  terraform:
+    name: 'Terraform Deployment'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./terraform
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.5.0
+      
+      - name: Create SSH key file
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.AZURE_VM_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          
+      - name: Create terraform.tfvars
+        run: |
+          cat > terraform.tfvars << EOL
+          resource_group_name = "${{ secrets.AZURE_RESOURCE_GROUP }}"
+          vm_name = "${{ secrets.AZURE_VM_NAME }}"
+          vm_public_ip = "${{ secrets.AZURE_VM_HOST }}"
+          vm_username = "${{ secrets.AZURE_VM_USERNAME }}"
+          ssh_private_key_path = "~/.ssh/id_rsa"
+          
+          docker_username = "${{ secrets.DOCKER_USERNAME }}"
+          docker_password = "${{ secrets.DOCKER_PASSWORD }}"
+          
+          domain_name = "${{ secrets.DOMAIN_NAME }}"
+          
+          mysql_root_password = "${{ secrets.MYSQL_ROOT_PASSWORD }}"
+          mysql_database = "${{ secrets.MYSQL_DATABASE }}"
+          mysql_user = "${{ secrets.MYSQL_USER }}"
+          mysql_password = "${{ secrets.MYSQL_PASSWORD }}"
+          EOL
+      
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      
+      - name: Build and push Docker images
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: ./Dockerfile.wordpress
+          push: true
+          tags: ${{ secrets.DOCKER_USERNAME }}/1xbet-aviator-wordpress:latest
+      
+      - name: Build and push Caddy image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: ./Dockerfile.caddy
+          push: true
+          tags: ${{ secrets.DOCKER_USERNAME }}/1xbet-aviator-caddy:latest
+      
+      - name: Terraform Init
+        id: init
+        run: terraform init
+        env:
+          ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+          ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+          ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+      
+      - name: Terraform Format
+        id: fmt
+        run: terraform fmt -check
+        continue-on-error: true
+      
+      - name: Terraform Plan
+        id: plan
+        run: terraform plan -no-color
+        env:
+          ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+          ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+          ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+        continue-on-error: true
+      
+      - name: Terraform Apply
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        run: terraform apply -auto-approve
+        env:
+          ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+          ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+          ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }} 

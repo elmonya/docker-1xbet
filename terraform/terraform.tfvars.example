@@ -1,0 +1,19 @@
+# Информация о существующей VM в Azure
+resource_group_name = "my-resource-group"
+vm_name             = "wordpress-vm"
+vm_public_ip        = "20.30.40.50"
+vm_username         = "azureuser"
+ssh_private_key_path = "~/.ssh/id_rsa"
+
+# Docker Hub
+docker_username     = "your-dockerhub-username"
+docker_password     = "your-dockerhub-password"
+
+# Настройки WordPress
+domain_name         = "1xbet-install.com"
+
+# MySQL
+mysql_root_password = "secure-root-password"
+mysql_database      = "wordpress"
+mysql_user          = "wp_user"
+mysql_password      = "secure-mysql-password" 
