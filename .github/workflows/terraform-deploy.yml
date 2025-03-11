@@ -20,9 +20,28 @@ env:
   DOMAIN_NAME: ${{ secrets.DOMAIN_NAME }}
 
 jobs:
+  validate_compose:
+    name: 'Validate Docker Compose'
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Check Docker version
+        run: docker --version
+      
+      - name: Use Docker Compose plugin
+        run: |
+          # Используем встроенный в Docker плагин compose вместо standalone docker-compose
+          docker compose version
+          # Проверяем конфигурацию
+          docker compose config -q
+  
   terraform:
     name: 'Terraform Deployment'
     runs-on: ubuntu-latest
+    needs: validate_compose
     defaults:
       run:
         working-directory: ./terraform
