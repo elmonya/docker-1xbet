@@ -1,57 +1,57 @@
 variable "vm_resource_id" {
-  description = "ID ресурса виртуальной машины в Azure"
+  description = "82aa94ac-50f1-4c46-af94-c387f9a717c4"
   type        = string
 }
 
 variable "vm_public_ip" {
-  description = "Публичный IP-адрес виртуальной машины"
+  description = "40.69.45.51"
   type        = string
 }
 
 variable "vm_username" {
-  description = "Имя пользователя для SSH-подключения к VM"
+  description = "azureuser"
   type        = string
 }
 
 variable "ssh_private_key_path" {
-  description = "Путь к файлу приватного SSH-ключа для подключения к VM"
+  description = "/home/serkas/.ssh/id_rsa.pub"
   type        = string
 }
 
 variable "docker_username" {
-  description = "Имя пользователя Docker Hub"
+  description = "skas"
   type        = string
 }
 
 variable "docker_password" {
-  description = "Пароль или токен Docker Hub"
+  description = "Monya01"
   type        = string
   sensitive   = true
 }
 
 variable "domain_name" {
-  description = "Доменное имя для WordPress сайта"
+  description = "1xbet-install.com"
   type        = string
 }
 
 variable "mysql_root_password" {
-  description = "Пароль root пользователя MySQL"
+  description = "password"
   type        = string
   sensitive   = true
 }
 
 variable "mysql_database" {
-  description = "Имя базы данных MySQL"
+  description = "wordpress"
   type        = string
 }
 
 variable "mysql_user" {
-  description = "Имя пользователя MySQL"
+  description = "root"
   type        = string
 }
 
 variable "mysql_password" {
-  description = "Пароль пользователя MySQL"
+  description = "password"
   type        = string
   sensitive   = true
 }
